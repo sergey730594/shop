@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Context Tbilisi — Каталог товаров для дома</title>
+  
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+</head>
+<body>
+
+  <!-- Верхняя мини-полоска -->
+  <div class="sub-header">
+    <div class="sub-header__container">
+      <div class="sub-header__left">
+        <div class="sub-header__address">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#109aab" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span data-i18n="addressText">ქ. თბილისი, ჯავახეთის ქ. №144</span>
+        </div>
+      </div>
+      <div class="sub-header__right">
+        <a href="tel:+995557540040" class="sub-header__btn" aria-label="Звонок">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <span class="btn-text" data-i18n="callText">დაგვირეკეთ</span>
+        </a>
+        <a href="https://wa.me/995557540040" target="_blank" rel="noopener noreferrer" class="sub-header__btn" aria-label="WhatsApp">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#25D366"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          <span class="btn-text">WhatsApp</span>
+        </a>
+        <a href="viber://chat?number=%2B995557540040" class="sub-header__btn" aria-label="Viber">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#7360f2"><path d="M12 0C5.373 0 0 4.974 0 11.111c0 3.498 1.744 6.614 4.467 8.674V24l3.985-2.185c1.109.308 2.296.476 3.528.476 6.627 0 12-4.974 12-11.111S18.627 0 12 0zm6.177 15.65c-.244.71-1.396 1.32-1.92 1.398-.501.074-1.154.127-3.712-.916-3.197-1.31-5.265-4.577-5.426-4.792-.162-.215-1.295-1.724-1.295-3.287 0-1.563.818-2.33 1.108-2.65.29-.32.632-.4.843-.4.211 0 .422.007.607.016.195.009.458-.074.718.543.268.636.916 2.24.998 2.404.082.163.136.353.027.57-.109.217-.163.352-.326.543-.163.191-.343.426-.49.571-.163.163-.334.34-.144.663.19.324.843 1.396 1.81 2.261 1.244 1.11 2.293 1.453 2.617 1.616.324.163.513.136.703-.081.19-.218.816-.95 1.033-1.274.218-.324.435-.27.732-.163.297.108 1.884.89 2.208 1.053.324.163.541.244.622.378.081.134.081.776-.163 1.486z"/></svg>
+          <span class="btn-text">Viber</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Плавающая шапка -->
+  <header class="header">
+    <div class="header__container">
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Меню">
+          <span></span><span></span><span></span>
+        </button>
+        <a href="#" class="logo" id="logoLink">
+          <img src="logo.png" alt="Context Tbilisi" width="30" height="30" style="vertical-align: middle; margin-right: 8px;">
+          Context Tbilisi
+        </a>
+      </div>
+      
+      <form class="header__search" action="#" method="GET" onsubmit="event.preventDefault();">
+        <input type="text" class="search-input" data-i18n-placeholder="searchPlaceholder" placeholder="საქონლის ძებნა..." required />
+        <button type="submit" class="search-btn" aria-label="Найти">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </form>
+
+      <div class="header__actions">
+        <select class="lang-select" aria-label="Выбор языка">
+          <option value="ge">🇬🇪 GE</option>
+          <option value="en">🇬🇧 EN</option>
+          <option value="ru">🇷🇺 RU</option>
+          <option value="tr">🇹🇷 TR</option>
+        </select>
+        <button class="cart-btn" aria-label="Корзина">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: block; width: 24px; height: 24px;">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="cart-badge" style="display: none;">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Выдвижная шторка меню -->
+  <div class="menu-overlay" id="menuOverlay"></div>
+  <div class="menu-drawer" id="menuDrawer">
+    <div class="menu-drawer__header">
+      <h2 class="menu-drawer__title" data-i18n="menuTitle">კატეგორიები</h2>
+      <button class="menu-drawer__close" id="menuCloseBtn" aria-label="Закрыть">&times;</button>
+    </div>
+    <ul class="menu-drawer__list">
+      <li><a href="#" class="menu-drawer__link active" data-cat="cat1" data-i18n="cat1">ავეჯი</a></li>
+      <li><a href="#" class="menu-drawer__link" data-cat="cat2" data-i18n="cat2">ჭურჭელი</a></li>
+      <li><a href="#" class="menu-drawer__link" data-cat="cat3" data-i18n="cat3">ტექსტილი</a></li>
+      <li><a href="#" class="menu-drawer__link" data-cat="cat4" data-i18n="cat4">განათება</a></li>
+      <li><a href="#" class="menu-drawer__link" data-cat="cat5" data-i18n="cat5">დეკორი</a></li>
+      <li><a href="#" class="menu-drawer__link" data-cat="cat6" data-i18n="cat6">ორგანიზება</a></li>
+    </ul>
+  </div>
+
+  <!-- Основной контент -->
+  <main class="main">
+    <div class="container">
+      <section class="categories-carousel-wrapper">
+        <h2 class="section-title" data-i18n="categoriesTitle">კატეგორიები</h2>
+        <div class="categories-carousel" id="categoriesCarousel"></div>
+      </section>
+
+      <div class="catalog-top-bar">
+        <nav class="breadcrumbs" aria-label="breadcrumb">
+          <ol class="breadcrumbs__list">
+            <li class="breadcrumbs__item"><a href="#" class="breadcrumbs__link" id="homeBreadcrumb" data-i18n="home">მთავარი</a></li>
+            <li class="breadcrumbs__item"><span class="breadcrumbs__current" id="currentCategoryBreadcrumb">ავეჯი</span></li>
+          </ol>
+        </nav>
+        <h1 class="category-title-right" id="categoryTitleRight">ავეჯი</h1>
+      </div>
+
+      <div class="product-grid" id="productGrid"></div>
+    </div>
+  </main>
+
+  <!-- Корзина -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-modal" id="cartModal">
+    <div class="cart-modal__header">
+      <h2 class="cart-modal__title" style="display: flex; align-items: center; gap: 8px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#109aab" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        <span data-i18n="cartTitle">თქვენი კალათა</span>
+      </h2>
+      <button class="cart-modal__close" id="cartCloseBtn" aria-label="Закрыть">&times;</button>
+    </div>
+    <div class="cart-modal__body">
+      <div class="cart-items" id="cartItemsContainer"></div>
+
+      <!-- Блок выбора способа получения -->
+      <div class="cart-delivery">
+        <span class="cart-delivery__label" data-i18n="deliveryLabel">მიღების მეთოდი:</span>
+        <div class="cart-delivery__options">
+          <button class="cart-delivery__btn active" data-delivery="pickup" data-i18n="pickup">თვითგატანა</button>
+          <button class="cart-delivery__btn" data-delivery="delivery" data-i18n="delivery">მიტანა (+10 ₾)</button>
+        </div>
+      </div>
+
+      <div class="cart-modal__total">
+        <span data-i18n="total">სულ:</span>
+        <span id="cartTotalPrice">0 ₾</span>
+      </div>
+
+      <!-- Форма заказа -->
+      <form class="cart-form" id="checkoutForm">
+        <h3 class="cart-form__title" data-i18n="checkoutTitle">შეკვეთის გაფორმება</h3>
+        <input type="text" class="cart-form__input" name="name" data-i18n-placeholder="namePlaceholder" placeholder="თქვენი სახელი" required />
+        <input type="tel" class="cart-form__input" name="phone" data-i18n-placeholder="phonePlaceholder" placeholder="ტელეფონი" required />
+        
+        <!-- ЗАМЕНА: вместо email – дополнительный телефон -->
+        <input type="tel" class="cart-form__input" name="additional_phone" data-i18n-placeholder="additionalPhonePlaceholder" placeholder="დამატებითი ტელეფონი" />
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <input type="text" class="cart-form__input datepicker" name="delivery_date" data-i18n-placeholder="datePlaceholder" placeholder="მიტანის თარიღი" required />
+          <select class="cart-form__input" name="delivery_time" required aria-label="Время доставки">
+            <option value="" disabled selected data-i18n="timePlaceholder">მიტანის დრო</option>
+            <option value="10:00-12:00">10:00-12:00</option>
+            <option value="12:00-14:00">12:00-14:00</option>
+            <option value="14:00-16:00">14:00-16:00</option>
+            <option value="16:00-18:00">16:00-18:00</option>
+            <option value="18:00-20:00">18:00-20:00</option>
+            <option value="20:00-22:00">20:00-22:00</option>
+          </select>
+        </div>
+
+        <textarea class="cart-form__input" name="comment" data-i18n-placeholder="commentPlaceholder" placeholder="მიტანის მისამართი ან კომენტარი" rows="3"></textarea>
+        <button type="submit" class="btn btn--primary btn--full" data-i18n="submitOrder">შეკვეთის გაფორმება</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Футер -->
+  <footer class="footer">
+    <div class="container footer__container">
+      <div class="footer__col footer__col--info">
+        <a href="#" class="footer__logo">
+          <img src="logo.png" alt="Context Tbilisi" width="30" height="30" style="vertical-align: middle; margin-right: 8px;">
+          Context Tbilisi
+        </a>
+        <p class="footer__address" data-i18n="addressText">ქ. თბილისი, ჯავახეთის ქ. №144</p>
+        <div class="footer__contacts">
+          <a href="tel:+995557540040" class="footer__contact-link">📞 +995 (557) 54-00-40</a>
+        </div>
+      </div>
+      <div class="footer__col footer__col--socials">
+        <h3 class="footer__col-title" data-i18n="footerSocialsTitle">ჩვენ სოციალურ ქსელებში</h3>
+        <div class="footer__socials-grid">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer__social-btn facebook" title="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Facebook
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer__social-btn instagram" title="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            Instagram
+          </a>
+          <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" class="footer__social-btn pinterest" title="Pinterest">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345-.09.375-.291 1.199-.331 1.363-.053.225-.172.273-.395.164-1.471-.685-2.388-2.834-2.388-4.574 0-3.725 2.708-7.147 7.811-7.147 4.106 0 7.291 2.927 7.291 6.845 0 4.083-2.573 7.368-6.142 7.368-1.199 0-2.326-.623-2.71-1.359l-.738 2.811c-.267 1.028-1.001 2.316-1.492 3.102 1.125.346 2.321.535 3.55 .535 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>
+            Pinterest
+          </a>
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer__social-btn youtube" title="YouTube">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            YouTube
+          </a>
+          <a href="https://wa.me/995557540040" target="_blank" rel="noopener noreferrer" class="footer__social-btn whatsapp" title="WhatsApp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            WhatsApp
+          </a>
+          <a href="viber://chat?number=%2B995557540040" target="_blank" rel="noopener noreferrer" class="footer__social-btn viber" title="Viber">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 4.974 0 11.111c0 3.498 1.744 6.614 4.467 8.674V24l3.985-2.185c1.109.308 2.296.476 3.528.476 6.627 0 12-4.974 12-11.111S18.627 0 12 0zm6.177 15.65c-.244.71-1.396 1.32-1.92 1.398-.501.074-1.154.127-3.712-.916-3.197-1.31-5.265-4.577-5.426-4.792-.162-.215-1.295-1.724-1.295-3.287 0-1.563.818-2.33 1.108-2.65.29-.32.632-.4.843-.4.211 0 .422.007.607.016.195.009.458-.074.718.543.268.636.916 2.24.998 2.404.082.163.136.353.027.57-.109.217-.163.352-.326.543-.163.191-.343.426-.49.571-.163.163-.334.34-.144.663.19.324.843 1.396 1.81 2.261 1.244 1.11 2.293 1.453 2.617 1.616.324.163.513.136.703-.081.19-.218.816-.95 1.033-1.274.218-.324.435-.27.732-.163.297.108 1.884.89 2.208 1.053.324.163.541.244.622.378.081.134.081.776-.163 1.486z"/></svg>
+            Viber
+          </a>
+        </div>
+      </div>
+      <div class="footer__col footer__col--map">
+        <div class="footer__map-cube">
+          <iframe title="Карта проезда" src="https://www.openstreetmap.org/export/embed.html?bbox=44.78%2C41.69%2C44.82%2C41.71&amp;layer=mapnik&amp;marker=41.7000%2C44.8000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ka.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ru.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/tr.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
