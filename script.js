@@ -1,5 +1,5 @@
 // --- Константы ---
-const ACCESS_KEY = 'YOUR_ACCESS_KEY_HERE';   // Замените на реальный ключ Web3Forms
+const ACCESS_KEY = '3b591875-b051-4039-bce3-8f2fada1978d';   // Замените на реальный ключ Web3Forms
 const PHONE_NUMBER = '995557540040';
 
 // --- Переменные состояния ---
