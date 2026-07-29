@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Context Tbilisi — სატესტო კატალოგი</title>
+  <title>Context Tbilisi — სატესტო Online Shop-ი</title>
   
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
@@ -55,13 +55,16 @@
       </div>
       
       <form class="header__search" action="#" method="GET" onsubmit="event.preventDefault();">
-        <input type="text" class="search-input" data-i18n-placeholder="searchPlaceholder" placeholder="საქონლის ძებნა..." required />
+        <!-- Добавлен id="searchInput" и autocomplete="off" -->
+        <input type="text" class="search-input" id="searchInput" data-i18n-placeholder="searchPlaceholder" placeholder="საქონლის ძებნა..." required autocomplete="off" />
         <button type="submit" class="search-btn" aria-label="Найти">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="11" cy="11" r="8"></circle>
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
         </button>
+        <!-- Добавлен контейнер для результатов поиска -->
+        <div class="search-results" id="searchResults"></div>
       </form>
 
       <div class="header__actions">

@@ -5,7 +5,7 @@ const PHONE_NUMBER = '995557540040';
 // --- Переменные состояния ---
 let deliveryType = 'pickup'; // 'pickup' или 'delivery'
 
-// --- Переводы (добавлен additionalPhonePlaceholder для ge) ---
+// --- Переводы (добавлен additionalPhonePlaceholder для ge и noResults) ---
 const translations = {
   ge: {
     addressText: "ქ. თბილისი, ჯავახეთის ქუჩა, №144",
@@ -27,7 +27,7 @@ const translations = {
     checkoutTitle: "შეკვეთის გაფორმება",
     namePlaceholder: "თქვენი სახელი",
     phonePlaceholder: "ტელეფონი",
-    additionalPhonePlaceholder: "დამატებითი ტელეფონი",   // БЫЛО ОТСУТСТВОВАЛО
+    additionalPhonePlaceholder: "დამატებითი ტელეფონი",
     datePlaceholder: "მიტანის თარიღი",
     timePlaceholder: "მიტანის დრო",
     commentPlaceholder: "მიტანის მისამართი ან კომენტარი",
@@ -39,7 +39,8 @@ const translations = {
     footerSocialsTitle: "ჩვენ სოციალურ ქსელებში",
     deliveryLabel: "მიღების მეთოდი:",
     pickup: "თვითგატანა",
-    delivery: "მიტანა (+10 ₾)"
+    delivery: "მიტანა (+10 ₾)",
+    noResults: "საქონელი ვერ მოიძებნა"
   },
   en: {
     addressText: "Tbilisi, Javakheti Street, No. 144",
@@ -73,7 +74,8 @@ const translations = {
     footerSocialsTitle: "We are in social networks",
     deliveryLabel: "Pickup method:",
     pickup: "Pickup",
-    delivery: "Delivery (+10 ₾)"
+    delivery: "Delivery (+10 ₾)",
+    noResults: "No products found"
   },
   ru: {
     addressText: "г. Тбилиси, ул. Джавахетская, №144",
@@ -107,7 +109,8 @@ const translations = {
     footerSocialsTitle: "Мы в соцсетях",
     deliveryLabel: "Способ получения:",
     pickup: "Самовывоз",
-    delivery: "Доставка (+10 ₾)"
+    delivery: "Доставка (+10 ₾)",
+    noResults: "Товары не найдены"
   },
   tr: {
     addressText: "Tiflis, Javakheti Caddesi, No. 144",
@@ -141,7 +144,8 @@ const translations = {
     footerSocialsTitle: "Sosyal Medya",
     deliveryLabel: "Teslim alma yöntemi:",
     pickup: "Mağazadan al",
-    delivery: "Teslimat (+10 ₾)"
+    delivery: "Teslimat (+10 ₾)",
+    noResults: "Ürün bulunamadı"
   }
 };
 
@@ -216,7 +220,7 @@ const categoriesData = {
       { id: "6_3", price: 95, oldPrice: 115, image: "images/photo-1616046229478-9901c5536a45.jpg", title: { ge: "სარეცხის კალათა Linen Foldable", en: "Linen Foldable Laundry Hamper", ru: "Складная корзина для белья Linen", tr: "Kumaş Katlanabilir Çamaşır Sepeti" } },
       { id: "6_4", price: 45, oldPrice: null, image: "images/photo-1544816155-12df9643f363.jpg", title: { ge: "ორგანიზატორი უჯრისთვის Organizer Set", en: "Drawer Organizer Divider Set", ru: "Органайзеры для выдвижных ящиков", tr: "Çekmece İçi Düzenleyici Set" } },
       { id: "6_5", price: 85, oldPrice: 100, image: "images/photo-1586023492125-27b2c045efd7.jpg", title: { ge: "სამზარეულოს სანელებლების თარო Spice Rack", en: "Revolving Spice Rack Organizer", ru: "Вращающаяся подставка для специй Spice Rack", tr: "Döner Baharatlık Düzenleyici" } },
-      { id: "6_6", price: 65, oldPrice: null, image: "images/photo-1591129841119-c48fc8e89f81.jpg", title: { ge: "ტანსაცმლის ჩანთების ნაკრები Garment Bags (5ც)", en: "Garment Clothes Covers Set (5 pcs)", ru: "Чехлы для хранения одежды (5 шт)", tr: "Elbise Kılıfı Seti (5'li)" } }
+      { id: "6_6", price: 65, oldPrice: null, image: "images/photo-1603006905003-be475563bc59.jpg", title: { ge: "ტანსაცმლის ჩანთების ნაკრები Garment Bags (5ც)", en: "Garment Clothes Covers Set (5 pcs)", ru: "Чехлы для хранения одежды (5 шт)", tr: "Elbise Kılıfı Seti (5'li)" } }
     ]
   }
 };
@@ -679,5 +683,115 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => cartBtn.classList.remove('shake'), 300);
   }
 
+  // ---- ИНИЦИАЛИЗАЦИЯ УМНОГО ПОИСКА ----
+  initSearch();
+
   updateCartBadge();
 });
+
+// ============================================================
+// УМНЫЙ ПОИСК (АВТОДОПОЛНЕНИЕ)
+// ============================================================
+
+let searchTimeout = null;
+
+function searchProducts(query, lang) {
+  if (!query.trim()) return [];
+  const lowerQuery = query.toLowerCase().trim();
+  const results = [];
+  Object.keys(categoriesData).forEach(catKey => {
+    const category = categoriesData[catKey];
+    category.products.forEach(product => {
+      const title = product.title[lang] || product.title['ge'];
+      if (title.toLowerCase().includes(lowerQuery)) {
+        results.push({
+          ...product,
+          categoryKey: catKey,
+          categoryName: category.name[lang] || category.name['ge'],
+          title: title
+        });
+      }
+    });
+  });
+  return results.slice(0, 8);
+}
+
+function renderSearchResults(results, lang) {
+  const container = document.getElementById('searchResults');
+  if (!container) return;
+  if (results.length === 0) {
+    container.innerHTML = `<div class="search-result-empty">${translations[lang]?.noResults || 'Товары не найдены'}</div>`;
+    container.classList.add('active');
+    return;
+  }
+  let html = '';
+  results.forEach(item => {
+    const price = item.price.toLocaleString('ru-RU');
+    html += `
+      <a href="#" class="search-result-item" data-id="${item.id}" data-cat="${item.categoryKey}">
+        <img src="${item.image}" alt="${item.title}" class="search-result-item__image" loading="lazy">
+        <div class="search-result-item__info">
+          <span class="search-result-item__title">${item.title}</span>
+          <span class="search-result-item__category">${item.categoryName}</span>
+        </div>
+        <span class="search-result-item__price">${price} ₾</span>
+      </a>
+    `;
+  });
+  container.innerHTML = html;
+  container.classList.add('active');
+  container.querySelectorAll('.search-result-item').forEach(el => {
+    el.addEventListener('click', function(e) {
+      e.preventDefault();
+      const catKey = this.dataset.cat;
+      if (catKey) {
+        switchCategory(catKey);
+        document.getElementById('searchResults').classList.remove('active');
+        document.getElementById('searchInput').value = '';
+        document.getElementById('searchInput').blur();
+      }
+    });
+  });
+}
+
+document.addEventListener('click', function(e) {
+  const searchContainer = document.querySelector('.header__search');
+  const resultsContainer = document.getElementById('searchResults');
+  if (searchContainer && resultsContainer) {
+    if (!searchContainer.contains(e.target)) {
+      resultsContainer.classList.remove('active');
+    }
+  }
+});
+
+function initSearch() {
+  const searchInput = document.getElementById('searchInput');
+  const resultsContainer = document.getElementById('searchResults');
+  if (!searchInput) return;
+  searchInput.addEventListener('input', function() {
+    clearTimeout(searchTimeout);
+    const query = this.value;
+    const lang = getCurrentLang();
+    if (query.trim().length < 2) {
+      resultsContainer.classList.remove('active');
+      return;
+    }
+    searchTimeout = setTimeout(() => {
+      const results = searchProducts(query, lang);
+      renderSearchResults(results, lang);
+    }, 300);
+  });
+  searchInput.addEventListener('blur', function() {
+    setTimeout(() => {
+      resultsContainer.classList.remove('active');
+    }, 200);
+  });
+  searchInput.addEventListener('focus', function() {
+    const query = this.value;
+    if (query.trim().length >= 2) {
+      const lang = getCurrentLang();
+      const results = searchProducts(query, lang);
+      renderSearchResults(results, lang);
+    }
+  });
+}

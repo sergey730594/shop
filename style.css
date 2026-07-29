@@ -179,6 +179,7 @@ body {
   width: 100%;
   order: 3;
   display: flex;
+  position: relative; /* для позиционирования результатов */
 }
 .search-input {
   flex-grow: 1;
@@ -668,6 +669,7 @@ body {
 .cart-btn.shake svg {
   animation: shake 0.3s ease;
 }
+
 /* --- Фиксация кнопки оформления заказа на мобильных --- */
 .btn--fixed-bottom {
   position: sticky;
@@ -684,8 +686,6 @@ body {
   width: 100%;
   box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.08);
 }
-
-/* Для мобильных устройств – чтобы кнопка не перекрывала содержимое */
 @media (max-width: 768px) {
   .btn--fixed-bottom {
     position: sticky;
@@ -699,8 +699,97 @@ body {
     font-size: 1.1rem;
     font-weight: 600;
   }
-  /* Добавляем отступ снизу для формы, чтобы кнопка не перекрывала поля */
   .cart-form {
-    padding-bottom: 80px; /* резервируем место для липкой кнопки */
+    padding-bottom: 80px;
+  }
+}
+
+/* --- Умный поиск (автодополнение) --- */
+.header__search {
+  position: relative;
+}
+.search-results {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  max-height: 350px;
+  overflow-y: auto;
+  z-index: 1000;
+  display: none;
+}
+.search-results.active {
+  display: block;
+}
+.search-result-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  gap: 12px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+  border-bottom: 1px solid #f0f0f0;
+  text-decoration: none;
+  color: var(--color-text);
+}
+.search-result-item:last-child {
+  border-bottom: none;
+}
+.search-result-item:hover {
+  background-color: #f5f8fa;
+}
+.search-result-item__image {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.search-result-item__info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-width: 0;
+}
+.search-result-item__title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.search-result-item__category {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+.search-result-item__price {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  white-space: nowrap;
+}
+.search-result-empty {
+  padding: 16px;
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+@media (max-width: 768px) {
+  .search-results {
+    max-height: 280px;
+    top: calc(100% + 2px);
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  .search-result-item {
+    padding: 12px 14px;
+  }
+  .search-result-item__image {
+    width: 40px;
+    height: 40px;
   }
 }
